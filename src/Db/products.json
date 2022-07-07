@@ -1,0 +1,115 @@
+{
+  "products": [
+    {
+      "new_arrivals": [
+        {
+          "id": 1,
+          "img": "./assets/images/bed1.jpg",
+          "model": "bed x-large",
+          "qty": 35,
+          "price": 3000,
+          "campaign": "E24R"
+        },
+        {
+          "id": 2,
+          "img": "./assets/images/sofa2.jpg",
+          "model": "sofa x-large",
+          "qty": 3,
+          "price": 4000,
+          "campaign": "E25R"
+        },
+
+        {
+          "id": 3,
+          "img": "./assets/images/table3.jpg",
+          "model": "table x-large",
+          "qty": 23,
+          "price": 5000,
+          "campaign": "E26R"
+        },
+        {
+          "id": 4,
+          "img": "./assets/images/mirror4.jpg",
+          "model": "mirror xx-large",
+          "qty": 12,
+          "price": 3500,
+          "campaign": "E24R"
+        }
+      ]
+    },
+    {
+      "sales": [
+        {
+          "id": 5,
+          "img": "./assets/images/mirror1.jpg",
+          "model": "mirror x-large",
+          "qty": 35,
+          "price": 3500,
+          "campaign": "E25R"
+        },
+        {
+          "id": 6,
+          "img": "./assets/images/table2.jpg",
+          "model": "table x-large",
+          "qty": 3,
+          "price": 1500,
+          "campaign": "E24R"
+        },
+
+        {
+          "id": 7,
+          "img": "./assets/images/sofa3.jpg",
+          "model": "sofa x-large",
+          "qty": 23,
+          "price": 2500,
+          "campaign": "E26R"
+        },
+        {
+          "id": 8,
+          "img": "./assets/images/bed4.jpg",
+          "model": "bed x-large",
+          "qty": 12,
+          "price": 5500,
+          "campaign": "E24R"
+        }
+      ]
+    },
+    {
+      "Second_hand": [
+        {
+          "id": 9,
+          "img": "./assets/images/mirror3.jpg",
+          "model": "mirror x-large",
+          "qty": 35,
+          "price": 2500,
+          "campaign": "E24R"
+        },
+        {
+          "id": 10,
+          "img": "./assets/images/bed2.jpg",
+          "model": "bed large",
+          "qty": 3,
+          "price": 3500,
+          "campaign": "E25R"
+        },
+
+        {
+          "id": 11,
+          "img": "./assets/images/sofa1.jpg",
+          "model": "sofa medium",
+          "qty": 23,
+          "price": 4500,
+          "campaign": "E26R"
+        },
+        {
+          "id": 12,
+          "img": "./assets/images/table1.jpg",
+          "model": "table small",
+          "qty": 12,
+          "price": 1500,
+          "campaign": "E24R"
+        }
+      ]
+    }
+  ]
+}

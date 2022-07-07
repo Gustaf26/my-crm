@@ -1,0 +1,7 @@
+{
+  "campaigns": [
+    { "kod": "E24R", "discount": "20", "info": "3 for 2" },
+    { "kod": "E25R", "discount": "10", "info": "Ingen förskott" },
+    { "kod": "E26R", "discount": "30", "info": "100 bonus poäng" }
+  ]
+}
