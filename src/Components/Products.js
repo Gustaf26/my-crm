@@ -8,7 +8,7 @@ function Products() {
   const handler = useContext(UserContext)
   const [currentCategory, setCategory] = useState("sales")
   const [categoryProducts, setCatProds] = useState([])
-  const resize = useRef(1000)
+  const prevSize = useRef(window.innerWidth)
   // Slider logic adapted to window.innerWidth (responsive)
   const [slideIndex, setIndex] = useState(0)
   const [minIndex, setMinimum] = useState(-1)
@@ -32,6 +32,34 @@ function Products() {
         : 1
     )
   }, [])
+
+  useEffect(() => {
+    function handleResize(width) {
+      if (slideIndex > categoryProducts.length || minIndex < -1) {
+        return
+      } else if (Number(width) > Number(prevSize.current)) {
+        setIndex(
+          width >= 1000
+            ? slideIndex + 4
+            : width >= 600 && width < 1000
+            ? slideIndex + 2
+            : slideIndex + 1
+        )
+      } else if (Number(width) < Number(prevSize.current)) {
+        console.log(width)
+        setIndex(width >= 1000 ? 4 : width >= 600 && width < 1000 ? 2 : 1)
+      }
+      prevSize.current = width
+    }
+
+    window.addEventListener("resize", () => {
+      handleResize(Number(window.innerWidth))
+    })
+
+    return () => {
+      window.removeEventListener("resize", handleResize)
+    }
+  })
 
   return (
     <div>
