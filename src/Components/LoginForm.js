@@ -1,6 +1,7 @@
-import React from "react"
+import React, { useContext } from "react"
 import { Navigate } from "react-router-dom"
 import "../Styles/App.css"
+import { UserContext } from "../Hooks/userContext"
 
 import { useForm } from "react-hook-form"
 import { yupResolver } from "@hookform/resolvers/yup"
@@ -11,21 +12,26 @@ const schema = yup.object().shape({
   password: yup.string().min(4).max(15).required(),
 })
 
-function LoginForm({ notLoggedIn, setLogin }) {
+function LoginForm() {
   const { register, handleSubmit, errors } = useForm({
     resolver: yupResolver(schema),
   })
 
+  const handler = useContext(UserContext)
+
   const submitForm = data => {
     if (data) {
-      if (data.email === "gustavos@email.com" && data.password === "my-pass") {
-        setLogin(false)
+      if (
+        data.email === handler.userRegistered.email &&
+        data.password === handler.userRegistered.password
+      ) {
+        handler.setLogin(true)
       }
     }
   }
   return (
     <div class="d-flex justify-content-center pr-0">
-      {notLoggedIn ? (
+      {handler.loggedIn === false ? (
         <form
           id="login-form"
           onSubmit={handleSubmit(submitForm)}

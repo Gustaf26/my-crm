@@ -7,14 +7,14 @@ function Home() {
 
   return (
     <form
-      id="login-form"
+      id="welcome-form"
       class="border border-dark rounded login-form p-4 d-flex flex-column align-items-center ml-0"
     >
       <h5 class="p-3">MY CRM</h5>
-      <div className="d-flex">
+      <div className="d-flex w-100 justify-content-center mx-auto">
         <button
           type="button"
-          className="btn h-100 bg-transparent border border-dark font-weight-bold p-3"
+          className="btn bg-transparent border border-dark font-weight-bold px-3"
           onClick={() => setOption("register")}
         >
           Register
@@ -22,7 +22,7 @@ function Home() {
         <p className="p-3">Or</p>
         <button
           type="button"
-          className="btn h-100 bg-transparent border border-dark font-weight-bold p-3"
+          className="btn bg-transparent border border-dark font-weight-bold p-3"
           onClick={() => {
             setOption("login")
           }}

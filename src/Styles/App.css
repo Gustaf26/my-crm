@@ -21,7 +21,7 @@ main {
   margin-right: 0px !important;
   margin-left: 0px !important;
   height: 100vh;
-  background: url("../Db/Images/image1.jpg");
+  background: url("../assets/Images/image1.jpg");
   background-size: cover;
   color: #555;
 }
@@ -50,6 +50,8 @@ main div.container {
 
 /* ---NAV ON THE LEFT --*/
 nav {
+  position: absolute;
+  left: 0;
   height: 100vh;
   margin-left: -2vw;
   display: flex;
@@ -139,6 +141,23 @@ nav span {
   background-color: rgba(125, 90, 70, 0.5);
 }
 
+#welcome-form {
+  height: 30vh;
+  min-width: 30vw;
+  backdrop-filter: blur(5px);
+  margin-top: 14rem;
+  background-color: rgba(125, 90, 70, 0.5);
+}
+
+#welcome-form button:hover {
+  background-color: #555 !important;
+  color: white;
+}
+
+#welcome-form h5 {
+  color: rgb(34, 14, 2);
+}
+
 #login-form h5 {
   color: rgb(72, 71, 71);
 }
@@ -186,13 +205,14 @@ nav span {
 #products-container {
   font-variant: JIS78;
   font-weight: 600;
-  position: relative;
+  position: absolute;
+  right: 0;
   height: 100vh;
   color: #555;
   backdrop-filter: blur(3px);
-  width: 68vw;
+  width: 73vw;
   padding: 2rem;
-  margin-left: 4vw;
+  margin-right: 4vw;
   margin-top: -2rem;
 }
 
@@ -228,6 +248,10 @@ nav span {
   box-shadow: 1px 1px 5px 1px rgba(0, 0, 0, 0.1);
   border-radius: 5px;
   max-width: 104% !important;
+}
+.bbb_deals_image {
+  width: 30%;
+  height: auto;
 }
 .m-t-20 {
   margin-top: 20px;
@@ -344,8 +368,9 @@ nav span {
     margin-top: 5%;
   }
   .mySlides {
-    max-width: 22%;
+    width: 50%;
     margin-right: 1rem;
+    height: 65%;
   }
   #slide-left {
     margin-left: 2%;
@@ -380,7 +405,7 @@ nav span {
   .mySlides {
     width: 42%;
     margin-left: 1rem;
-    height: 95%;
+    height: 65%;
   }
 
   #slide-left {
@@ -411,7 +436,7 @@ nav span {
   }
   .mySlides {
     max-width: 90%;
-    height: 93%;
+    height: 65%;
   }
 
   #slide-left {
@@ -468,6 +493,7 @@ nav span {
 }
 .bbb_deals_image img {
   width: 100%;
+  height: auto;
 }
 .bbb_deals_content {
   margin-top: 33px;

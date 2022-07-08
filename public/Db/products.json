@@ -4,7 +4,7 @@
       "new_arrivals": [
         {
           "id": 1,
-          "img": "./assets/images/bed1.jpg",
+          "img": "Db/Images/bed1.jpg",
           "model": "bed x-large",
           "qty": 35,
           "price": 3000,
@@ -12,7 +12,7 @@
         },
         {
           "id": 2,
-          "img": "./assets/images/sofa2.jpg",
+          "img": "Db/Images/sofa2.jpg",
           "model": "sofa x-large",
           "qty": 3,
           "price": 4000,
@@ -21,7 +21,7 @@
 
         {
           "id": 3,
-          "img": "./assets/images/table3.jpg",
+          "img": "Db/Images/table3.jpg",
           "model": "table x-large",
           "qty": 23,
           "price": 5000,
@@ -29,7 +29,7 @@
         },
         {
           "id": 4,
-          "img": "./assets/images/mirror4.jpg",
+          "img": "Db/Images/mirror4.jpg",
           "model": "mirror xx-large",
           "qty": 12,
           "price": 3500,
@@ -41,7 +41,7 @@
       "sales": [
         {
           "id": 5,
-          "img": "./assets/images/mirror1.jpg",
+          "img": "Db/Images/mirror1.jpg",
           "model": "mirror x-large",
           "qty": 35,
           "price": 3500,
@@ -49,7 +49,7 @@
         },
         {
           "id": 6,
-          "img": "./assets/images/table2.jpg",
+          "img": "Db/Images/table2.jpg",
           "model": "table x-large",
           "qty": 3,
           "price": 1500,
@@ -58,7 +58,7 @@
 
         {
           "id": 7,
-          "img": "./assets/images/sofa3.jpg",
+          "img": "Db/Images/sofa3.jpg",
           "model": "sofa x-large",
           "qty": 23,
           "price": 2500,
@@ -66,7 +66,7 @@
         },
         {
           "id": 8,
-          "img": "./assets/images/bed4.jpg",
+          "img": "Db/Images/bed4.jpg",
           "model": "bed x-large",
           "qty": 12,
           "price": 5500,
@@ -78,7 +78,7 @@
       "Second_hand": [
         {
           "id": 9,
-          "img": "./assets/images/mirror3.jpg",
+          "img": "Db/Images/mirror3.jpg",
           "model": "mirror x-large",
           "qty": 35,
           "price": 2500,
@@ -86,7 +86,7 @@
         },
         {
           "id": 10,
-          "img": "./assets/images/bed2.jpg",
+          "img": "Db/Images/bed2.jpg",
           "model": "bed large",
           "qty": 3,
           "price": 3500,
@@ -95,7 +95,7 @@
 
         {
           "id": 11,
-          "img": "./assets/images/sofa1.jpg",
+          "img": "Db/Images/sofa1.jpg",
           "model": "sofa medium",
           "qty": 23,
           "price": 4500,
@@ -103,7 +103,7 @@
         },
         {
           "id": 12,
-          "img": "./assets/images/table1.jpg",
+          "img": "Db/Images/table1.jpg",
           "model": "table small",
           "qty": 12,
           "price": 1500,

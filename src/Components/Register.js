@@ -1,35 +1,32 @@
-import React, { useState } from "react"
+import React, { useState, useContext } from "react"
 import { Navigate } from "react-router-dom"
 import "../Styles/App.css"
 
 import { useForm } from "react-hook-form"
 import { yupResolver } from "@hookform/resolvers/yup"
 import * as yup from "yup"
+import { UserContext } from "../Hooks/userContext"
 
 const schema = yup.object().shape({
   email: yup.string().email().required(),
   password: yup.string().min(4).max(15).required(),
-  confirmPassword: yup
-    .string()
-    .min(4)
-    .max(15)
-    .oneOf([yup.ref("password"), null]),
+  confirmpassword: yup.string().oneOf([yup.ref("password"), null]),
 })
 
 function Register() {
-  const [registered, setRegistered] = useState(false)
+  const handler = useContext(UserContext)
 
   const { register, handleSubmit, errors } = useForm({
     resolver: yupResolver(schema),
   })
 
   const submitForm = data => {
-    setRegistered(data)
+    handler.register(data)
   }
 
   return (
     <div class="d-flex justify-content-center pr-0">
-      {registered === false ? (
+      {handler.userRegistered === false ? (
         <form
           id="register-form"
           onSubmit={handleSubmit(submitForm)}
@@ -64,7 +61,7 @@ function Register() {
               id="pass"
               type="password"
               name="confirmpassword"
-              class="w-100 bg-transparent text-light p-2 rounded border border-secondary"
+              className="text-light w-100 bg-transparent text-light p-2 rounded border border-secondary"
               placeholder="Enter same password"
               ref={register}
             />
