@@ -20,7 +20,7 @@ function Register() {
     resolver: yupResolver(schema),
   })
 
-  const submitForm = data => {
+  const submitRegister = data => {
     handler.register(data)
   }
 
@@ -29,7 +29,7 @@ function Register() {
       {handler.userRegistered === false ? (
         <form
           id="register-form"
-          onSubmit={handleSubmit(submitForm)}
+          onSubmit={handleSubmit(submitRegister)}
           class="border border-dark rounded login-form col-6 d-flex flex-column align-items-center ml-0 py-3"
         >
           <h5 class="p-2">MY CRM</h5>

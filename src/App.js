@@ -12,6 +12,7 @@ function App() {
   const [campaigns, setCampaigns] = useState([])
   const [loggedIn, setloginStatus] = useState(false)
   const [userRegistered, setRegistered] = useState(false)
+  const [productsCategory, setCategory] = useState("sales")
 
   const getProdsFromStorage = () => {
     fetch("./Db/products.json")
@@ -50,6 +51,8 @@ function App() {
           setLogin: setloginStatus,
           userRegistered: userRegistered,
           register: setRegistered,
+          productsCategory: productsCategory,
+          setCategory: setCategory,
         }}
       >
         <div

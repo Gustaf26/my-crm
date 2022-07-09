@@ -6,7 +6,7 @@ import Slide from "./Slide"
 
 function Products() {
   const handler = useContext(UserContext)
-  const [currentCategory, setCategory] = useState("sales")
+
   const [categoryProducts, setCatProds] = useState([])
   const prevSize = useRef(window.innerWidth)
   // Slider logic adapted to window.innerWidth (responsive)
@@ -15,15 +15,14 @@ function Products() {
 
   useEffect(() => {
     handler.products.map((cat, i) => {
-      console.log(currentCategory)
-      if (Object.keys(cat).toString() == currentCategory) {
-        setCatProds(handler.products[i][`${currentCategory}`])
+      console.log(handler.productsCategory)
+      if (Object.keys(cat).toString() == handler.productsCategory) {
+        setCatProds(handler.products[i][`${handler.productsCategory}`])
       }
     })
-  }, [handler.products])
+  }, [handler.products, handler.productsCategory])
 
   useEffect(() => {
-    handler.setLogin(true)
     setIndex(
       window.innerWidth >= 1000
         ? 4
@@ -37,17 +36,9 @@ function Products() {
     function handleResize(width) {
       if (slideIndex > categoryProducts.length || minIndex < -1) {
         return
-      } else if (Number(width) > Number(prevSize.current)) {
-        setIndex(
-          width >= 1000
-            ? slideIndex + 4
-            : width >= 600 && width < 1000
-            ? slideIndex + 2
-            : slideIndex + 1
-        )
-      } else if (Number(width) < Number(prevSize.current)) {
-        console.log(width)
+      } else {
         setIndex(width >= 1000 ? 4 : width >= 600 && width < 1000 ? 2 : 1)
+        setMinimum(-1)
       }
       prevSize.current = width
     }
@@ -63,14 +54,16 @@ function Products() {
 
   return (
     <div>
-      {handler.loggedIn === true ? <div>{/* <Nav /> */}</div> : null}
+      <Nav />
       <div
         ref={this}
         id="products-container"
         className="d-flex justify-content-center align-items-center"
       >
-        {currentCategory && (
-          <h3 className="products-category">{currentCategory.toUpperCase()}</h3>
+        {handler.productsCategory && (
+          <h3 className="products-category">
+            {handler.productsCategory.toUpperCase()}
+          </h3>
         )}
         {categoryProducts.length &&
           categoryProducts.map((prod, i) => {
