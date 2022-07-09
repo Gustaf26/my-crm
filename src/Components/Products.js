@@ -68,7 +68,13 @@ function Products() {
         {categoryProducts.length &&
           categoryProducts.map((prod, i) => {
             if (i < slideIndex && i > minIndex) {
-              return <Slide key={i} prod={prod} />
+              let prodCampInfo
+              handler.campaigns.map(camp => {
+                if (camp.kod === prod.campaign) {
+                  prodCampInfo = camp.info
+                }
+              })
+              return <Slide campInfo={prodCampInfo} key={i} prod={prod} />
             }
           })}
         <button

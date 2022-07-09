@@ -51,9 +51,9 @@ main div.container {
 /* ---NAV ON THE LEFT --*/
 nav {
   position: absolute;
-  left: 0;
+  left: -1vw;
   height: 100vh;
-  margin-left: -2vw;
+  margin: auto 0 1rem -3vw;
   display: flex;
   flex-direction: column;
   width: 25vw;
@@ -61,7 +61,6 @@ nav {
 
 nav h6 {
   text-align: center;
-  margin-left: 0;
   margin-top: 1rem;
   border: 1px solid white;
   padding: 10px;
@@ -191,9 +190,38 @@ nav span {
 }
 
 #campaign-form {
-  margin: -5.5rem auto 0 4% !important;
-  max-width: 70vw !important;
+  margin: 5.5rem auto 0 auto !important;
+  width: 80vw !important;
   min-width: 200px;
+  height: 60vh;
+}
+
+#campaign-form h5 {
+  margin: 0 auto 3rem auto !important;
+  min-height: 20% !important;
+  line-height: 2;
+}
+
+#campaign-form h5,
+#campaign-form div {
+  max-height: 10%;
+}
+
+#success-message {
+  position: absolute;
+  top: 30%;
+  left: 50%;
+  width: 30vw;
+  text-align: center;
+  height: 15vh;
+  line-height: 2;
+  border-radius: 5px;
+  background-color: rgba(125, 90, 70, 0.9);
+}
+
+#success-message h6 {
+  font-weight: bold;
+  font-size: x-large;
 }
 
 .section.active-sec {
@@ -210,9 +238,9 @@ nav span {
   height: 100vh;
   color: #555;
   backdrop-filter: blur(3px);
-  width: 73vw;
+  width: 70vw;
   padding: 2rem;
-  margin-right: 4vw;
+  margin-right: 1vw;
   margin-top: -2rem;
 }
 

@@ -12,16 +12,14 @@ const Nav = () => {
   return (
     <div>
       {handler.loggedIn ? (
-        <nav className="nav flex-column bg-dark shadow-sm font-italic rounded p-4">
-          <a className="w-100">
-            <Link to="/home">
-              <h6 className="text-white">MY CRM</h6>
-            </Link>
-          </a>
-          <a id="1" className="nav-link rounded-pill">
+        <nav className="nav flex-column bg-dark shadow-sm font-italic rounded mx-2 px-2">
+          <Link to="/home">
+            <h6 className="w-100 text-white">MY CRM</h6>
+          </Link>
+          <Link className="nav-link rounded-pill" to="/campaigns">
             <i className="fa fa-solid fa-percent mr-2"></i>
             <span>Campaigns</span>
-          </a>
+          </Link>
           <div className="dropdown show">
             <a
               className="nav-link rounded-pill dropdown-toggle"
@@ -39,26 +37,29 @@ const Nav = () => {
               className="dropdown-menu ml-4 w-75 py-3"
               aria-labelledby="dropdownMenuLink"
             >
-              <a
+              <Link
                 className="dropdown-item py-2"
                 onClick={() => handler.setCategory("sales")}
+                to="/products"
               >
-                <Link to="/products">Sales</Link>
-              </a>
+                Sales
+              </Link>
               <div className="dropdown-divider"></div>
-              <a
+              <Link
                 className="dropdown-item py-2"
                 onClick={() => handler.setCategory("new_arrivals")}
+                to="/products"
               >
-                <Link to="/products">New Arrivals</Link>
-              </a>
+                New Arrivals
+              </Link>
               <div className="dropdown-divider"></div>
-              <a
+              <Link
+                to="/products"
                 className="dropdown-item py-2"
                 onClick={() => handler.setCategory("Second_hand")}
               >
-                <Link to="/products">Second Hand</Link>
-              </a>
+                Second Hand
+              </Link>
             </div>
           </div>
           <a id="3" href="#" className="nav-link rounded-pill">

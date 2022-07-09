@@ -1,9 +1,10 @@
 import React from "react"
 
-function Slide({ prod }) {
+function Slide({ prod, campInfo }) {
   return (
     <div className="d-flex mySlides pt-5 mt-3">
       <div className="bbb_deals">
+        <span class="rib">{campInfo}</span>
         <div className="bbb_deals_item">
           <div className="bbb_deals_image">
             <img src={prod.img} alt="product" />

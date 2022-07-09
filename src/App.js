@@ -6,6 +6,7 @@ import Home from "./Components/Home"
 import LoginForm from "./Components/LoginForm"
 import Products from "./Components/Products"
 import Register from "./Components/Register"
+import Campaigns from "./Components/Campaigns"
 
 function App() {
   const [products, setProducts] = useState([])
@@ -55,15 +56,13 @@ function App() {
           setCategory: setCategory,
         }}
       >
-        <div
-          className="d-flex justify-content-center align-items-start"
-          id="form-container"
-        >
+        <div className="d-flex justify-content-center align-items-start m-0">
           <Routes>
             <Route exact path={"/"} element={<Home />}></Route>
             <Route path={"/register"} element={<Register />} />
             <Route path={"/login"} element={<LoginForm />} />
             <Route path={"/products"} element={<Products />} />
+            <Route path={"/campaigns"} element={<Campaigns />} />
           </Routes>
         </div>
       </UserContext.Provider>
