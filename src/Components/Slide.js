@@ -1,8 +1,23 @@
-import React from "react"
+import React, { useEffect, useState } from "react"
 
 function Slide({ prod, campInfo }) {
+  const [activeSlide, setActive] = useState(false)
+
+  useEffect(() => {
+    setActive(true)
+    return () => {
+      setActive(false)
+    }
+  }, [])
+
   return (
-    <div className="d-flex mySlides pt-5 mt-3">
+    <div
+      className={
+        activeSlide
+          ? "d-flex mySlides active-slide pt-5 mt-3"
+          : "d-flex mySlides pt-5 mt-3"
+      }
+    >
       <div className="bbb_deals">
         <span class="rib">{campInfo}</span>
         <div className="bbb_deals_item">
