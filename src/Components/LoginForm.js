@@ -1,4 +1,4 @@
-import React, { useContext } from "react"
+import React, { useContext, useState } from "react"
 import { Navigate } from "react-router-dom"
 import "../Styles/App.css"
 import { UserContext } from "../Hooks/userContext"
@@ -16,6 +16,7 @@ function LoginForm() {
   const { register, handleSubmit, errors } = useForm({
     resolver: yupResolver(schema),
   })
+  const [registerMsg, setRegister] = useState(false)
 
   const handler = useContext(UserContext)
 
@@ -26,50 +27,54 @@ function LoginForm() {
         data.password === handler.userRegistered.password
       ) {
         handler.setLogin(true)
+      } else {
+        setRegister(true)
       }
     }
   }
   return (
-    <div class="d-flex justify-content-center pr-0">
-      {handler.loggedIn === false ? (
+    <div className="d-flex justify-content-center pr-0">
+      {handler.loggedIn === false && !registerMsg ? (
         <form
           id="login-form"
           onSubmit={handleSubmit(submitForm)}
-          class="border border-dark rounded login-form col-6 d-flex flex-column align-items-center ml-0 py-3"
+          className="border border-dark rounded login-form col-6 d-flex flex-column align-items-center ml-0 py-3"
         >
-          <h5 class="p-3">MY CRM</h5>
+          <h5 className="p-3">MY CRM</h5>
           <h6 className="text-light pb-1">Please log in</h6>
-          <div class="form-group">
+          <div className="form-group">
             <input
               id="email"
               type="email"
               name="email"
-              class="w-100 p-2 bg-transparent text-light rounded border border-secondary"
+              className="w-100 p-2 bg-transparent text-light rounded border border-secondary"
               placeholder="Enter your email"
               ref={register}
             />
           </div>
-          <p class="text-light"> {errors.email?.message} </p>
-          <div class="form-group">
+          <p className="text-light"> {errors.email?.message} </p>
+          <div className="form-group">
             <input
               id="pass"
               type="password"
               name="password"
-              class="w-100 bg-transparent text-light p-2 rounded border border-secondary"
+              className="w-100 bg-transparent text-light p-2 rounded border border-secondary"
               placeholder="Enter your password"
               ref={register}
             />
           </div>
-          <p class="text-light"> {errors.password?.message} </p>
+          <p className="text-light"> {errors.password?.message} </p>
           <button
             type="submit"
-            class="btn bg-transparent border border-dark font-weight-bold"
+            className="btn bg-transparent border border-dark font-weight-bold"
           >
             Submit
           </button>
         </form>
+      ) : handler.loggedIn === false && registerMsg === true ? (
+        <Navigate to="/register" />
       ) : (
-        <Navigate to="/products" />
+        <Navigate to="/" />
       )}
     </div>
   )

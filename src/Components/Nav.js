@@ -11,9 +11,15 @@ const Nav = () => {
 
   return (
     <div>
-      {handler.loggedIn ? (
-        <nav className="nav flex-column bg-dark shadow-sm font-italic rounded mx-2 px-2">
-          <Link to="/home">
+      {handler.loggedIn && (
+        <nav
+          className={
+            handler.activeMenu
+              ? "active nav flex-column bg-dark shadow-sm font-italic rounded mx-2 px-2"
+              : "nav flex-column bg-dark shadow-sm font-italic rounded mx-2 px-2"
+          }
+        >
+          <Link to="/">
             <h6 className="w-100 text-white">MY CRM</h6>
           </Link>
           <Link className="nav-link rounded-pill" to="/campaigns">
@@ -70,18 +76,17 @@ const Nav = () => {
             <i className="fa fa-pencil mr-2"></i>
             <span>Update product</span>
           </a>
-          <a
+          <Link
             id="4"
             href="#"
             onClick={logout}
+            to="/login"
             className="nav-link d-flex links rounded-pill"
           >
             <i className="fa fa-user mr-2"></i>
             <span>Log out</span>
-          </a>
+          </Link>
         </nav>
-      ) : (
-        <Navigate to="/register" />
       )}
     </div>
   )

@@ -7,6 +7,7 @@ import LoginForm from "./Components/LoginForm"
 import Products from "./Components/Products"
 import Register from "./Components/Register"
 import Campaigns from "./Components/Campaigns"
+import Index from "./Components/Index"
 
 function App() {
   const [products, setProducts] = useState([])
@@ -14,6 +15,7 @@ function App() {
   const [loggedIn, setloginStatus] = useState(false)
   const [userRegistered, setRegistered] = useState(false)
   const [productsCategory, setCategory] = useState("sales")
+  const [activeMenu, setToActive] = useState(false)
 
   const getProdsFromStorage = () => {
     fetch("./Db/products.json")
@@ -54,11 +56,13 @@ function App() {
           register: setRegistered,
           productsCategory: productsCategory,
           setCategory: setCategory,
+          activateMenu: setToActive,
+          activeMenu: activeMenu,
         }}
       >
         <div className="d-flex justify-content-center align-items-start m-0">
           <Routes>
-            <Route exact path={"/"} element={<Home />}></Route>
+            <Route exact path={"/"} element={<Index />}></Route>
             <Route path={"/register"} element={<Register />} />
             <Route path={"/login"} element={<LoginForm />} />
             <Route path={"/products"} element={<Products />} />

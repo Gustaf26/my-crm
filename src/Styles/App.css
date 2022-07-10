@@ -57,6 +57,9 @@ nav {
   display: flex;
   flex-direction: column;
   width: 25vw;
+}
+
+nav.active {
   animation: move-left 2s forwards;
 }
 
@@ -100,6 +103,16 @@ nav span {
 
 .dropdown-menu {
   animation: slide 1s forwards;
+}
+
+#greeting {
+  border: 1px solid rgb(0, 0, 0);
+  color: rgb(80, 154, 252);
+  padding: 1rem;
+  font-size: larger;
+  font-weight: bold;
+  margin: 3rem auto 0 33%;
+  line-height: 2;
 }
 
 @keyframes move-left {
