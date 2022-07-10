@@ -2,7 +2,7 @@ import "./Styles/App.css"
 import { Routes, Route } from "react-router-dom"
 import React, { useState, useContext, useEffect } from "react"
 import { UserContext } from "./Hooks/userContext"
-import Home from "./Components/Home"
+import UpdateProd from "./Components/UpdateProd"
 import LoginForm from "./Components/LoginForm"
 import Products from "./Components/Products"
 import Register from "./Components/Register"
@@ -67,6 +67,7 @@ function App() {
             <Route path={"/login"} element={<LoginForm />} />
             <Route path={"/products"} element={<Products />} />
             <Route path={"/campaigns"} element={<Campaigns />} />
+            <Route path={"/update"} element={<UpdateProd />} />
           </Routes>
         </div>
       </UserContext.Provider>

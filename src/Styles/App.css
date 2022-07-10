@@ -205,7 +205,8 @@ nav span {
 
 #create-prod-form {
   height: 95vh;
-  /* min-width: 72vw; */
+  margin-left: 17% !important;
+  margin-top: 1rem !important;
 }
 
 #create-prod-form div {

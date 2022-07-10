@@ -72,10 +72,10 @@ const Nav = () => {
             <i className="fa fa-plus mr-2"></i>
             <span>Create product</span>
           </a>
-          <a id="4" href="#" className="nav-link d-flex links rounded-pill">
+          <Link to="/update" className="nav-link d-flex links rounded-pill">
             <i className="fa fa-pencil mr-2"></i>
             <span>Update product</span>
-          </a>
+          </Link>
           <Link
             id="4"
             href="#"
