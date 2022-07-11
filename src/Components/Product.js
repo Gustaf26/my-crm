@@ -1,23 +1,29 @@
 import React, { useEffect, useState, useContext } from "react"
-import { Navigate } from "react-router-dom"
+import { Navigate, useParams } from "react-router-dom"
 import { UserContext } from "../Hooks/userContext"
 
 function Product({ prod, campInfo }) {
   const [activeSlide, setActive] = useState(false)
   const [prodId, setId] = useState("")
   const handler = useContext(UserContext)
+  const [singleProdSlide, setSingleProdSlide] = useState(false)
+  const singleProdShowing = useParams()
 
   useEffect(() => {
     setActive(true)
+
     return () => {
       setActive(false)
+      setSingleProdSlide(false)
     }
   }, [])
 
   return (
     <div
       className={
-        activeSlide
+        Number(singleProdShowing.id) == prod.id
+          ? "d-flex single-prod-slide pt-5 mt-3"
+          : activeSlide
           ? "d-flex mySlides active-slide pt-5 mt-3"
           : "d-flex mySlides pt-5 mt-3"
       }

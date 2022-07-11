@@ -54,7 +54,6 @@ function Products() {
 
   return (
     <div>
-      <Nav />
       <div
         ref={this}
         id="products-container"

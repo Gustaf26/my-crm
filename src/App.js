@@ -69,7 +69,7 @@ function App() {
         }}
       >
         {loggedIn && <Nav />}
-        <div className="d-flex justify-content-center align-items-start h-100 m-0">
+        <div className="d-flex justify-content-center align-items-start h-100 w-100 m-0">
           <Routes>
             <Route exact path={"/"} element={<Index />}></Route>
             <Route path={"/register"} element={<Register />} />

@@ -353,7 +353,7 @@ nav span {
   position: absolute;
 }
 .bbb_deals {
-  width: 100%;
+  width: 100% !important;
   height: 125%;
   position: relative;
   margin-right: 7%;
@@ -419,6 +419,12 @@ nav span {
   animation: slide 2s forwards;
 }
 
+.single-prod-slide {
+  position: absolute;
+  top: 5%;
+  height: 105%;
+}
+
 @keyframes slide {
   0% {
     opacity: 0;
@@ -472,6 +478,11 @@ nav span {
     margin-right: 1rem;
     height: 65%;
   }
+  .single-prod-slide {
+    left: 47%;
+    height: 65%;
+    width: 33vw !important;
+  }
   #slide-left {
     margin-left: 2%;
     left: -6%;
@@ -508,6 +519,12 @@ nav span {
     height: 65%;
   }
 
+  .single-prod-slide {
+    left: 37%;
+    height: 65%;
+    min-width: 45vw;
+  }
+
   #slide-left {
     margin-left: 1.3rem;
     left: -4%;
@@ -537,6 +554,11 @@ nav span {
   .mySlides {
     max-width: 90%;
     height: 65%;
+  }
+  .single-prod-slide {
+    left: 37%;
+    height: 65%;
+    min-width: 50vw;
   }
 
   #slide-left {
