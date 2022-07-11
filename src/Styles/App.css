@@ -251,9 +251,29 @@ nav span {
   animation: slide 2s forwards;
 }
 
+#update-success-message {
+  position: absolute;
+  top: 5%;
+  width: 30vw;
+  text-align: center;
+  height: 14vh;
+  border-radius: 10px;
+  background-color: rgba(125, 90, 70, 0.8);
+  color: rgb(80, 154, 252);
+  animation: slide 2s forwards;
+  z-index: 1000;
+  font-weight: bold;
+}
+
 #success-message h6 {
   font-weight: bold;
   font-size: x-large;
+}
+
+#update-success-message h6 {
+  line-height: 2;
+  font-weight: bold;
+  font-size: large;
 }
 
 .section.active-sec {
@@ -295,6 +315,13 @@ nav span {
   border-radius: 5px;
   font-size: large;
   font-weight: bold;
+}
+
+#updated-product {
+  /* margin-left: 30% !important; */
+  position: absolute !important;
+  left: 15% !important;
+  max-height: 90vh;
 }
 
 /*-----Prod cards-----*/

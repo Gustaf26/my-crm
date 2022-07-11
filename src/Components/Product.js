@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react"
 
-function Slide({ prod, campInfo }) {
+function Product({ prod, campInfo }) {
   const [activeSlide, setActive] = useState(false)
 
   useEffect(() => {
@@ -58,4 +58,4 @@ function Slide({ prod, campInfo }) {
   )
 }
 
-export default Slide
+export default Product

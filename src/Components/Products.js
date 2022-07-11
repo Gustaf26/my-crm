@@ -2,7 +2,7 @@ import React, { useContext, useEffect, useRef, useState } from "react"
 import { Navigate } from "react-router-dom"
 import { UserContext } from "../Hooks/userContext"
 import Nav from "./Nav"
-import Slide from "./Slide"
+import Product from "./Product"
 
 function Products() {
   const handler = useContext(UserContext)
@@ -74,7 +74,7 @@ function Products() {
                   prodCampInfo = camp.info
                 }
               })
-              return <Slide campInfo={prodCampInfo} key={i} prod={prod} />
+              return <Product campInfo={prodCampInfo} key={i} prod={prod} />
             }
           })}
         <button

@@ -1,8 +1,9 @@
 import React, { useContext, useState } from "react"
-import { Navigate } from "react-router-dom"
+import { Navigate, Link } from "react-router-dom"
 import "../Styles/App.css"
 import { UserContext } from "../Hooks/userContext"
 import Nav from "./Nav"
+import Product from "./Product"
 import { useForm } from "react-hook-form"
 import { yupResolver } from "@hookform/resolvers/yup"
 import * as yup from "yup"
@@ -22,7 +23,9 @@ function UpdateProd() {
     resolver: yupResolver(schema),
   })
 
-  const [redirecting, setRedirecting] = useState(false)
+  const [prodUpdated, setprodUpdated] = useState(false)
+  const [prodInfo, setProdInfo] = useState("")
+  const [prodCamp, setProdCamp] = useState("")
 
   const updateProduct = data => {
     console.log(data)
@@ -32,7 +35,8 @@ function UpdateProd() {
       catName = Object.keys(cat).toString()
       allProds[index][`${catName}`].map((prod, i) => {
         if (Number(prod.id) === Number(data.prodId)) {
-          allProds[index][`${catName}`][i] = {
+          let updatedProd
+          updatedProd = {
             id: data.prodId,
             img: data.prodImg,
             model: data.prodName,
@@ -40,18 +44,24 @@ function UpdateProd() {
             price: data.prodPrice,
             campaign: data.campCode,
           }
-          handler.setCategory(catName)
+          allProds[index][`${catName}`][i] = updatedProd
+          setProdInfo(updatedProd)
+          handler.campaigns.map(camp => {
+            if (camp.kod === data.campCode) {
+              setProdCamp(camp.info)
+            }
+          })
         }
       })
     })
     handler.updateProducts(allProds)
-    setRedirecting(true)
+    setprodUpdated(true)
   }
 
   return (
     <div>
       <Nav />
-      {handler.loggedIn && !redirecting ? (
+      {handler.loggedIn && !prodUpdated ? (
         <form
           onSubmit={handleSubmit(updateProduct)}
           id="create-prod-form"
@@ -139,8 +149,31 @@ function UpdateProd() {
             Submit
           </button>
         </form>
-      ) : handler.loggedIn && redirecting ? (
-        <Navigate to="/products" />
+      ) : handler.loggedIn && prodUpdated ? (
+        <div
+          id="updated-product"
+          className="w-100 mt-3 h-100 d-flex flex-column justify-content-center align-items-center"
+        >
+          <div
+            id="update-success-message"
+            className="text-primary text-large p-3 mx-auto"
+          >
+            <h6>SUCCESS!</h6>
+            <div className="d-flex justify-content-between w-100">
+              <Link
+                to="/update"
+                onClick={() => setprodUpdated(false)}
+                className="text-light"
+              >
+                &#8666; Update
+              </Link>
+              <Link to="/products" className="text-light">
+                Products &#8667;
+              </Link>
+            </div>
+          </div>
+          <Product prod={prodInfo} campInfo={prodCamp} />
+        </div>
       ) : (
         <Navigate to="/login" />
       )}
