@@ -1,5 +1,4 @@
 import React, { useContext, useEffect, useRef, useState } from "react"
-import { Navigate } from "react-router-dom"
 import { UserContext } from "../Hooks/userContext"
 import Nav from "./Nav"
 import Product from "./Product"
@@ -16,8 +15,9 @@ function Products() {
   useEffect(() => {
     handler.products.map((cat, i) => {
       console.log(handler.productsCategory)
-      if (Object.keys(cat).toString() == handler.productsCategory) {
+      if (Object.keys(cat).toString() === handler.productsCategory) {
         setCatProds(handler.products[i][`${handler.productsCategory}`])
+        return
       }
     })
   }, [handler.products, handler.productsCategory])

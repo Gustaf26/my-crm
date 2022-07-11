@@ -40,7 +40,7 @@ function Campaigns() {
     <div>
       <Nav />
       <div className="w-75 ml-auto d-flex justfiy-content-center">
-        {successMsg == false ? (
+        {successMsg === false ? (
           <form
             onSubmit={handleSubmit(submitCamp)}
             id="campaign-form"

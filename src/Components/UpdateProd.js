@@ -1,9 +1,8 @@
 import React, { useContext, useState } from "react"
-import { Navigate, Link } from "react-router-dom"
+import { Navigate } from "react-router-dom"
 import "../Styles/App.css"
 import { UserContext } from "../Hooks/userContext"
 import Nav from "./Nav"
-import Product from "./Product"
 import { useForm } from "react-hook-form"
 import { yupResolver } from "@hookform/resolvers/yup"
 import * as yup from "yup"
@@ -24,8 +23,6 @@ function UpdateProd() {
   })
 
   const [prodUpdated, setprodUpdated] = useState(false)
-  const [prodInfo, setProdInfo] = useState("")
-  const [prodCamp, setProdCamp] = useState("")
 
   const updateProduct = data => {
     console.log(data)
@@ -45,12 +42,14 @@ function UpdateProd() {
             campaign: data.campCode,
           }
           allProds[index][`${catName}`][i] = updatedProd
-          setProdInfo(updatedProd)
+          handler.setSingleProd(updatedProd)
           handler.campaigns.map(camp => {
             if (camp.kod === data.campCode) {
-              setProdCamp(camp.info)
+              handler.setCampInfo(camp.info)
+              return
             }
           })
+          return
         }
       })
     })
@@ -150,30 +149,7 @@ function UpdateProd() {
           </button>
         </form>
       ) : handler.loggedIn && prodUpdated ? (
-        <div
-          id="updated-product"
-          className="w-100 mt-3 h-100 d-flex flex-column justify-content-center align-items-center"
-        >
-          <div
-            id="update-success-message"
-            className="text-primary text-large p-3 mx-auto"
-          >
-            <h6>SUCCESS!</h6>
-            <div className="d-flex justify-content-between w-100">
-              <Link
-                to="/update"
-                onClick={() => setprodUpdated(false)}
-                className="text-light"
-              >
-                &#8666; Update
-              </Link>
-              <Link to="/products" className="text-light">
-                Products &#8667;
-              </Link>
-            </div>
-          </div>
-          <Product prod={prodInfo} campInfo={prodCamp} />
-        </div>
+        <Navigate to={`/product/${handler.singleProd.id}`} />
       ) : (
         <Navigate to="/login" />
       )}

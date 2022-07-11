@@ -258,8 +258,8 @@ nav span {
   text-align: center;
   height: 14vh;
   border-radius: 10px;
-  background-color: rgba(125, 90, 70, 0.8);
-  color: rgb(80, 154, 252);
+  background-color: rgba(125, 90, 70, 0.5);
+  color: #256e9f !important;
   animation: slide 2s forwards;
   z-index: 1000;
   font-weight: bold;
