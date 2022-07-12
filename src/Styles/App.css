@@ -511,7 +511,7 @@ nav span {
   }
 }
 
-@media screen and (min-width: 600px) and (max-width: 999px) {
+@media screen and (min-width: 700px) and (max-width: 999px) {
   nav h6 {
     margin-right: -0.75rem;
   }
@@ -558,7 +558,7 @@ nav span {
   }
 }
 
-@media screen and (max-width: 599px) {
+@media screen and (max-width: 699px) {
   .nav-link {
     padding-left: 25% !important;
   }

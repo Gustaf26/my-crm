@@ -1,6 +1,5 @@
 import React, { useContext, useEffect, useRef, useState } from "react"
 import { UserContext } from "../Hooks/userContext"
-import Nav from "./Nav"
 import Product from "./Product"
 
 function Products() {
@@ -24,9 +23,9 @@ function Products() {
 
   useEffect(() => {
     setIndex(
-      window.innerWidth >= 1000
+      window.innerWidth >= 1100
         ? 4
-        : window.innerWidth >= 600 && window.innerWidth < 1000
+        : window.innerWidth >= 700 && window.innerWidth < 1099
         ? 2
         : 1
     )
@@ -37,7 +36,7 @@ function Products() {
       if (slideIndex > categoryProducts.length || minIndex < -1) {
         return
       } else {
-        setIndex(width >= 1000 ? 4 : width >= 600 && width < 1000 ? 2 : 1)
+        setIndex(width >= 1100 ? 4 : width >= 700 && width <= 1099 ? 2 : 1)
         setMinimum(-1)
       }
       prevSize.current = width
@@ -83,16 +82,16 @@ function Products() {
               return
             }
             setIndex(
-              window.innerWidth >= 1000
+              window.innerWidth >= 1100
                 ? slideIndex - 4
-                : window.innerWidth >= 600 && window.innerWidth < 1000
+                : window.innerWidth >= 700 && window.innerWidth < 1099
                 ? slideIndex - 2
                 : slideIndex - 1
             )
             setMinimum(
-              window.innerWidth >= 1000
+              window.innerWidth >= 1100
                 ? minIndex - 4
-                : window.innerWidth >= 600 && window.innerWidth < 1000
+                : window.innerWidth >= 700 && window.innerWidth < 1099
                 ? minIndex - 2
                 : minIndex - 1
             )
@@ -107,16 +106,16 @@ function Products() {
               return
             }
             setIndex(
-              window.innerWidth >= 1000
+              window.innerWidth >= 1100
                 ? slideIndex + 4
-                : window.innerWidth >= 600 && window.innerWidth < 1000
+                : window.innerWidth >= 700 && window.innerWidth < 1099
                 ? slideIndex + 2
                 : slideIndex + 1
             )
             setMinimum(
-              window.innerWidth >= 1000
+              window.innerWidth >= 1100
                 ? minIndex + 4
-                : window.innerWidth >= 600 && window.innerWidth < 1000
+                : window.innerWidth >= 700 && window.innerWidth < 1099
                 ? minIndex + 2
                 : minIndex + 1
             )

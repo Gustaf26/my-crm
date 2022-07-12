@@ -4,7 +4,7 @@
       "new_arrivals": [
         {
           "id": 1,
-          "img": "Db/Images/bed1.jpg",
+          "img": "https://th.bing.com/th/id/R.dccae63f765d6f1f80f9ac82fedcc763?rik=pzMgo7YMVM63bQ&pid=ImgRaw&r=0",
           "model": "bed x-large",
           "qty": 35,
           "price": 3000,
@@ -12,7 +12,7 @@
         },
         {
           "id": 2,
-          "img": "Db/Images/sofa2.jpg",
+          "img": "https://th.bing.com/th/id/R.99b5cb42d9844c524ce4b290871328f2?rik=OypyNvW3m8jvtQ&pid=ImgRaw&r=0",
           "model": "sofa x-large",
           "qty": 3,
           "price": 4000,
@@ -21,7 +21,7 @@
 
         {
           "id": 3,
-          "img": "Db/Images/table3.jpg",
+          "img": "https://th.bing.com/th/id/R.a80a715caf3bf4a35264b1f6c7c4f05f?rik=ncbycVpG0NYkuw&riu=http%3a%2f%2fwww.potterybarn.ca%2fcore%2fmedia%2fmedia.nl%3fid%3d49619877%26c%3d3572911%26h%3d13dde14f28c7be9a8b76%26resizeid%3d25%26resizeh%3d1200%26resizew%3d1200&ehk=lE2aj1i7ItKrLDC%2f%2fGB%2fFkY9pgz4c3K9RTf%2fOTDzAuE%3d&risl=&pid=ImgRaw&r=0",
           "model": "table x-large",
           "qty": 23,
           "price": 5000,
@@ -29,7 +29,7 @@
         },
         {
           "id": 4,
-          "img": "Db/Images/mirror4.jpg",
+          "img": "https://images.antiquesatlas.com/dealer-stock-images/hobsonmaycollection/19th_Century_Giltwood_Wall_Mir_as710a002z.jpg",
           "model": "mirror xx-large",
           "qty": 12,
           "price": 3500,
@@ -41,7 +41,7 @@
       "sales": [
         {
           "id": 5,
-          "img": "Db/Images/mirror1.jpg",
+          "img": "https://www.homesdirect365.co.uk/images/antique-french-style-ivory-ornate-mirror-p55558-76572_zoom.jpg",
           "model": "mirror x-large",
           "qty": 35,
           "price": 3500,
@@ -49,7 +49,7 @@
         },
         {
           "id": 6,
-          "img": "Db/Images/table2.jpg",
+          "img": "https://content.instructables.com/ORIG/FQW/UNNR/H0OJ1FV9/FQWUNNRH0OJ1FV9.jpg?frame=1&width=2100",
           "model": "table x-large",
           "qty": 3,
           "price": 1500,
@@ -58,7 +58,7 @@
 
         {
           "id": 7,
-          "img": "Db/Images/sofa3.jpg",
+          "img": "https://authenticfurniture.co.uk/wp-content/uploads/2020/11/main_product_image_jetzoom_1061976_1563543889.jpg",
           "model": "sofa x-large",
           "qty": 23,
           "price": 2500,
@@ -66,7 +66,7 @@
         },
         {
           "id": 8,
-          "img": "Db/Images/bed4.jpg",
+          "img": "https://i5.walmartimages.com/asr/f0ea3f5f-b406-4c00-b8d7-5811949a63e6.968cd7e60e4c669e624830a228c98643.jpeg",
           "model": "bed x-large",
           "qty": 12,
           "price": 5500,
@@ -78,7 +78,7 @@
       "Second_hand": [
         {
           "id": 9,
-          "img": "Db/Images/mirror3.jpg",
+          "img": "https://th.bing.com/th/id/R.c5be9858f0f08651bd601dc898a72fdb?rik=JOEVVv7guFfUdA&pid=ImgRaw&r=0",
           "model": "mirror x-large",
           "qty": 35,
           "price": 2500,
@@ -86,7 +86,7 @@
         },
         {
           "id": 10,
-          "img": "Db/Images/bed2.jpg",
+          "img": "https://www.midhafurniture.com/upload/products/Quinden_Panel_Bed.jpg",
           "model": "bed large",
           "qty": 3,
           "price": 3500,
@@ -95,7 +95,7 @@
 
         {
           "id": 11,
-          "img": "Db/Images/sofa1.jpg",
+          "img": "https://th.bing.com/th/id/R.9f504fcc8952d2da47689988c861a1b9?rik=pITq8WehPYZxeg&riu=http%3a%2f%2ftendenza.de%2fsortiment%2fmedia%2fimage%2fFlexform_Sofa_Groundpiece.jpg&ehk=DgYy9HRUSZpr9k6%2b6580437e4q4khJC5om28Kc5BqI0%3d&risl=&pid=ImgRaw&r=0",
           "model": "sofa medium",
           "qty": 23,
           "price": 4500,
@@ -103,7 +103,7 @@
         },
         {
           "id": 12,
-          "img": "Db/Images/table1.jpg",
+          "img": "https://th.bing.com/th/id/R.8d0b3b527c83c7d2a64b428492ad6b4b?rik=sk%2blTV1sTnZTbA&pid=ImgRaw&r=0",
           "model": "table small",
           "qty": 12,
           "price": 1500,

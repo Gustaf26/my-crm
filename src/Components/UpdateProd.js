@@ -1,4 +1,4 @@
-import React, { useContext, useState } from "react"
+import React, { useContext, useState, useEffect } from "react"
 import { Navigate } from "react-router-dom"
 import "../Styles/App.css"
 import { UserContext } from "../Hooks/userContext"
@@ -21,6 +21,7 @@ function UpdateProd() {
   const { register, handleSubmit, errors } = useForm({
     resolver: yupResolver(schema),
   })
+  const [successMsg, setMsg] = useState(false)
 
   const [prodUpdated, setprodUpdated] = useState(false)
 
@@ -54,13 +55,23 @@ function UpdateProd() {
       })
     })
     handler.updateProducts(allProds)
-    setprodUpdated(true)
+    setMsg(true)
+    setTimeout(() => {
+      setprodUpdated(true)
+      setMsg(false)
+    }, 5000)
   }
+
+  useEffect(() => {
+    return () => {
+      setMsg(false)
+    }
+  }, [])
 
   return (
     <div>
       <Nav />
-      {handler.loggedIn && !prodUpdated ? (
+      {!prodUpdated && !successMsg ? (
         <form
           onSubmit={handleSubmit(updateProduct)}
           id="create-prod-form"
@@ -148,10 +159,16 @@ function UpdateProd() {
             Submit
           </button>
         </form>
-      ) : handler.loggedIn && prodUpdated ? (
-        <Navigate to={`/product/${handler.singleProd.id}`} />
+      ) : successMsg ? (
+        <div
+          id="success-message"
+          className="text-primary text-large p-3 mx-auto"
+        >
+          <h6>SUCCESS!</h6>
+          <p>Redirecting to see product</p>
+        </div>
       ) : (
-        <Navigate to="/login" />
+        <Navigate to={`/product/${handler.singleProd.id}`} />
       )}
     </div>
   )

@@ -42,10 +42,7 @@ function Product({ prod, campInfo }) {
           <span className="rib">{campInfo}</span>
           <div className="bbb_deals_item">
             <div className="bbb_deals_image">
-              <img
-                src={process.env.PUBLIC_URL + `/${prod.img}`}
-                alt="product"
-              />
+              <img src={prod.img} alt="product" />
             </div>
             <div className="bbb_deals_content">
               <div className="bbb_deals_info_line d-flex flex-row justify-content-start">
