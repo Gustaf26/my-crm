@@ -1,6 +1,8 @@
 import React, { useEffect, useState, useContext } from "react"
 import { Navigate, useParams } from "react-router-dom"
 import { UserContext } from "../Hooks/userContext"
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
+import { faTrash, faSquarePen } from "@fortawesome/free-solid-svg-icons"
 
 function Product({ prod, campInfo }) {
   const [activeSlide, setActive] = useState(false)
@@ -40,6 +42,15 @@ function Product({ prod, campInfo }) {
           }
         >
           <span className="rib">{campInfo}</span>
+          {singleProdShowing.id && (
+            <div
+              id="update-delete-prod-wrapper"
+              className="w-100 d-flex justify-content-center"
+            >
+              <FontAwesomeIcon icon={faSquarePen} className="icon mr-2" />
+              <FontAwesomeIcon icon={faTrash} className="icon ml-2" />
+            </div>
+          )}
           <div className="bbb_deals_item">
             <div className="bbb_deals_image">
               <img src={prod.img} alt="product" />

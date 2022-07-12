@@ -417,12 +417,37 @@ nav span {
 
 .active-slide {
   animation: slide 2s forwards;
+  cursor: pointer;
 }
 
 .single-prod-slide {
   position: absolute;
   top: 5%;
   height: 105%;
+  cursor: pointer;
+}
+
+#update-delete-prod-wrapper {
+  position: absolute;
+  align-items: start;
+  margin: 0 auto;
+  height: 30%;
+  bottom: 0%;
+  left: 0%;
+  right: 0%;
+  z-index: 1200;
+  color: rgb(80, 154, 252);
+  font-size: 1.75em;
+  background-color: rgba(191, 187, 187, 0.5);
+}
+
+#update-delete-prod-wrapper .icon {
+  cursor: pointer;
+  margin-top: 1.5rem;
+}
+
+#update-delete-prod-wrapper .icon:hover {
+  color: rgb(52, 84, 128) !important;
 }
 
 @keyframes slide {
@@ -603,6 +628,7 @@ nav span {
 
 .sold_stars i {
   color: orange;
+  z-index: 1220;
 }
 .ribbon-top-right span {
   right: 17px;
@@ -645,27 +671,32 @@ nav span {
 .bbb_deals_item_price {
   margin-top: -5%;
   font-size: medium !important;
+  z-index: 1220;
 }
 .bbb_deals_item_price_a {
   margin-top: -15%;
   font-size: 14px;
   font-weight: 400;
   color: rgba(0, 0, 0, 0.6);
+  z-index: 1220;
 }
 .bbb_deals_item_price_a strike {
   color: red;
+  z-index: 1220;
 }
 .bbb_deals_item_name {
   font-size: 1.05em;
   font-weight: bold;
-  color: rgb(0, 0, 0, 0.6);
+  color: rgb(0, 0, 0, 1);
   text-align: center;
   margin-bottom: -1rem;
+  z-index: 1220;
 }
 .bbb_deals_item_price {
   font-size: 1.1em;
   font-weight: 500;
   color: #6d6e73;
+  z-index: 1220;
 }
 .available {
   margin-top: 19px;
