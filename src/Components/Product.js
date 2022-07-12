@@ -6,7 +6,6 @@ function Product({ prod, campInfo }) {
   const [activeSlide, setActive] = useState(false)
   const [prodId, setId] = useState("")
   const handler = useContext(UserContext)
-  const [singleProdSlide, setSingleProdSlide] = useState(false)
   const singleProdShowing = useParams()
 
   useEffect(() => {
@@ -14,7 +13,6 @@ function Product({ prod, campInfo }) {
 
     return () => {
       setActive(false)
-      setSingleProdSlide(false)
     }
   }, [])
 
@@ -32,7 +30,7 @@ function Product({ prod, campInfo }) {
         <div
           className="bbb_deals"
           onClick={
-            handler.singleProd.id !== prod.id
+            handler.singleProd.id !== prod.id || !singleProdShowing.id
               ? () => {
                   handler.setSingleProd(prod)
                   handler.setCampInfo(campInfo)
@@ -41,10 +39,13 @@ function Product({ prod, campInfo }) {
               : null
           }
         >
-          <span class="rib">{campInfo}</span>
+          <span className="rib">{campInfo}</span>
           <div className="bbb_deals_item">
             <div className="bbb_deals_image">
-              <img src={prod.img} alt="product" />
+              <img
+                src={process.env.PUBLIC_URL + `/${prod.img}`}
+                alt="product"
+              />
             </div>
             <div className="bbb_deals_content">
               <div className="bbb_deals_info_line d-flex flex-row justify-content-start">

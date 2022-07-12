@@ -1,5 +1,5 @@
 import "./Styles/App.css"
-import { Routes, Route } from "react-router-dom"
+import { Routes, Route, Navigate } from "react-router-dom"
 import React, { useState, useEffect } from "react"
 import { UserContext } from "./Hooks/userContext"
 import UpdateProd from "./Components/UpdateProd"
@@ -71,15 +71,38 @@ function App() {
         {loggedIn && <Nav />}
         <div className="d-flex justify-content-center align-items-start h-100 w-100 m-0">
           <Routes>
-            <Route exact path={"/"} element={<Index />}></Route>
+            <Route
+              exact
+              path={"/"}
+              element={loggedIn ? <Index /> : <Navigate to="/login" />}
+            ></Route>
             <Route path={"/register"} element={<Register />} />
             <Route path={"/login"} element={<LoginForm />} />
-            <Route path={"/products"} element={<Products />} />
-            <Route path={"/campaigns"} element={<Campaigns />} />
-            <Route path={"/update"} element={<UpdateProd />} />
+            <Route
+              path={"/products"}
+              element={loggedIn ? <Products /> : <Navigate to="/login" />}
+            />
+            <Route
+              path={"/campaigns"}
+              element={loggedIn ? <Campaigns /> : <Navigate to="/login" />}
+            />
+            <Route
+              path={"/update"}
+              element={loggedIn ? <UpdateProd /> : <Navigate to="/login" />}
+            />
             <Route
               path={"/product/:id"}
-              element={<Product prod={singleProd} campInfo={campInfo} />}
+              element={
+                loggedIn ? (
+                  <Product prod={singleProd} campInfo={campInfo} />
+                ) : (
+                  <Navigate to="/login" />
+                )
+              }
+            />
+            <Route
+              path="*"
+              element={!loggedIn ? <Navigate to="login" /> : <LoginForm />}
             />
           </Routes>
         </div>

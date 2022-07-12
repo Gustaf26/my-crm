@@ -30,7 +30,7 @@ function Register() {
         <form
           id="register-form"
           onSubmit={handleSubmit(submitRegister)}
-          class="border border-dark rounded login-form col-6 d-flex flex-column align-items-center ml-0 py-3"
+          className="border border-dark rounded login-form col-6 d-flex flex-column align-items-center ml-0 py-3"
         >
           <h5 className="p-2">MY CRM</h5>
           <h6 className="text-light pb-1">Please register</h6>

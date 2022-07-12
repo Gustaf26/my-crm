@@ -483,6 +483,11 @@ nav span {
     height: 65%;
     width: 33vw !important;
   }
+  .single-prod-slide span.rib {
+    text-align: start;
+    padding-left: 35% !important;
+    width: 100%;
+  }
   #slide-left {
     margin-left: 2%;
     left: -6%;
@@ -523,6 +528,12 @@ nav span {
     left: 37%;
     height: 65%;
     min-width: 45vw;
+    max-width: 50vw;
+  }
+  .single-prod-slide span.rib {
+    text-align: start;
+    padding-left: 25% !important;
+    width: 100%;
   }
 
   #slide-left {
@@ -558,7 +569,13 @@ nav span {
   .single-prod-slide {
     left: 37%;
     height: 65%;
-    min-width: 50vw;
+    width: 50vw;
+  }
+
+  .single-prod-slide span.rib {
+    text-align: start;
+    padding-left: 35% !important;
+    width: 120% !important;
   }
 
   #slide-left {
@@ -576,7 +593,7 @@ nav span {
 
   .bbb_deals span.rib {
     width: 130%;
-    top: 30%;
+    top: 20%;
     padding-left: 1%;
   }
   .welcome-container h4 {
@@ -610,8 +627,8 @@ nav span {
   width: 100% !important;
 }
 .bbb_deals_image {
-  width: 100%;
-  margin-top: -1.5rem;
+  width: 75%;
+  margin: -1.5rem auto 0 auto;
 }
 .bbb_deals_image img {
   width: 100%;
