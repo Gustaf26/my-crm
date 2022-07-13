@@ -354,7 +354,6 @@ nav span {
   position: absolute;
 }
 .bbb_deals {
-  width: 100% !important;
   height: 125%;
   position: relative;
   margin-right: 7%;
@@ -362,7 +361,7 @@ nav span {
   padding-left: 25px;
   padding-right: 25px;
   padding-bottom: 34px;
-  box-shadow: 1px 1px 5px 1px rgba(0, 0, 0, 0.1);
+  box-shadow: 10px 10px 4px 1px rgba(0, 0, 0, 0.1);
   border-radius: 5px;
   margin-top: 0px;
   backdrop-filter: blur(10px);
@@ -391,6 +390,7 @@ nav span {
   text-transform: uppercase;
   text-align: center;
   transform: rotate(-45deg);
+  z-index: 2000;
 }
 .ribbon-top-right {
   top: 0;
@@ -517,6 +517,9 @@ nav span {
   #slide-left {
     margin-left: 2%;
     left: -6%;
+  }
+  .bbb_deals {
+    width: 100%;
   }
   .bbb_deals span.rib {
     width: 130%;
@@ -677,8 +680,12 @@ nav span {
   margin: -1.5rem auto 0 auto;
 }
 .bbb_deals_image img {
+  position: absolute;
+  top: 0%;
+  left: 0%;
   width: 100%;
   height: auto;
+  /* box-shadow: 7px 7px 10px rgb(128, 138, 143); */
 }
 .bbb_deals_content {
   margin-top: 33px;
@@ -737,8 +744,9 @@ nav span {
   }
 }
 
-@media only screen and (max-width: 575px) {
+@media only screen and (max-width: 699px) {
   .bbb_deals {
+    width: 40vw !important;
     padding-left: 15px;
     padding-right: 15px;
     margin-left: 7%;
