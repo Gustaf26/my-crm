@@ -244,7 +244,8 @@ nav span {
   left: 50%;
   width: 30vw;
   text-align: center;
-  height: 15vh;
+  min-height: 15vh;
+  max-height: 27vh;
   line-height: 2;
   border-radius: 5px;
   background-color: rgba(125, 90, 70, 0.9);
@@ -376,7 +377,7 @@ nav span {
 
 .bbb_deals span.rib {
   position: absolute;
-  left: -15%;
+  left: -25%;
   margin-top: -25%;
   display: block;
   width: 120%;
@@ -389,7 +390,7 @@ nav span {
   text-shadow: 0 1px 1px rgba(0, 0, 0, 0.2);
   text-transform: uppercase;
   text-align: center;
-  transform: rotate(-35deg);
+  transform: rotate(-45deg);
 }
 .ribbon-top-right {
   top: 0;
@@ -437,7 +438,7 @@ nav span {
   right: 0%;
   z-index: 1200;
   color: rgb(80, 154, 252);
-  font-size: 1.75em;
+  font-size: 1.65em;
   background-color: rgba(191, 187, 187, 0.5);
 }
 
@@ -591,6 +592,16 @@ nav span {
     max-width: 90%;
     height: 65%;
   }
+  .active-slide span.rib {
+    margin-left: -2.5rem !important;
+    position: absolute !important;
+    top: 30% !important;
+    left: -10%;
+    right: 40%;
+    text-align: center;
+    max-width: 130%;
+    line-height: 1.25;
+  }
   .single-prod-slide {
     left: 37%;
     height: 65%;
@@ -610,6 +621,15 @@ nav span {
   #create-prod-form {
     min-width: 72vw;
     margin-left: 2%;
+  }
+  #create-prod-form input,
+  #create-prod-form select,
+  #create-prod-form button {
+    margin-top: 0.7rem;
+  }
+
+  #create-prod-form div {
+    max-height: 8% !important;
   }
 
   .products-category {

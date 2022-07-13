@@ -9,9 +9,25 @@ function Product({ prod, campInfo }) {
   const [prodId, setId] = useState("")
   const handler = useContext(UserContext)
   const singleProdShowing = useParams()
+  const [navigateToUpdate, setNavigate] = useState(false)
+  const [prodDiscount, setDiscount] = useState(0)
+
+  const goToUpdate = () => {
+    handler.setSingleProd(prod)
+    setNavigate(true)
+  }
+
+  const getCampDiscount = () => {
+    handler.campaigns.map(campaign => {
+      if (campaign.info === campInfo) {
+        setDiscount(Number(campaign.discount) / 100)
+      }
+    })
+  }
 
   useEffect(() => {
     setActive(true)
+    getCampDiscount()
 
     return () => {
       setActive(false)
@@ -21,7 +37,7 @@ function Product({ prod, campInfo }) {
   return (
     <div
       className={
-        Number(singleProdShowing.id) == prod.id
+        Number(singleProdShowing.id) === prod.id
           ? "d-flex single-prod-slide pt-5 mt-3"
           : activeSlide
           ? "d-flex mySlides active-slide pt-5 mt-3"
@@ -47,7 +63,11 @@ function Product({ prod, campInfo }) {
               id="update-delete-prod-wrapper"
               className="w-100 d-flex justify-content-center"
             >
-              <FontAwesomeIcon icon={faSquarePen} className="icon mr-2" />
+              <FontAwesomeIcon
+                icon={faSquarePen}
+                className="icon mr-2"
+                onClick={goToUpdate}
+              />
               <FontAwesomeIcon icon={faTrash} className="icon ml-2" />
             </div>
           )}
@@ -62,7 +82,9 @@ function Product({ prod, campInfo }) {
                 </div>
               </div>
               <div className="bbb_deals_info_line d-flex flex-row justify-content-start">
-                <div className="bbb_deals_item_price ml-auto">{prod.price}</div>
+                <div className="bbb_deals_item_price ml-auto">
+                  {prod.price - prod.price * prodDiscount}
+                </div>
               </div>
               <div className="end-of-card">
                 <div className="bbb_deals_item_name w-100 pt-2">
@@ -88,6 +110,8 @@ function Product({ prod, campInfo }) {
       ) : (
         <Navigate to={`/product/${prodId}`} />
       )}
+
+      {navigateToUpdate && <Navigate to="/update" />}
     </div>
   )
 }

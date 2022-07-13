@@ -2,7 +2,6 @@ import React, { useContext, useState, useEffect } from "react"
 import { Navigate } from "react-router-dom"
 import "../Styles/App.css"
 import { UserContext } from "../Hooks/userContext"
-import Nav from "./Nav"
 import { useForm } from "react-hook-form"
 import { yupResolver } from "@hookform/resolvers/yup"
 import * as yup from "yup"
@@ -22,7 +21,6 @@ function UpdateProd() {
     resolver: yupResolver(schema),
   })
   const [successMsg, setMsg] = useState(false)
-
   const [prodUpdated, setprodUpdated] = useState(false)
 
   const updateProduct = data => {
@@ -70,7 +68,6 @@ function UpdateProd() {
 
   return (
     <div>
-      <Nav />
       {!prodUpdated && !successMsg ? (
         <form
           onSubmit={handleSubmit(updateProduct)}
@@ -89,6 +86,7 @@ function UpdateProd() {
               class="form-control"
               placeholder="Product id"
               ref={register}
+              defaultValue={handler.singleProd ? handler.singleProd.id : null}
             />
           </div>
           <div class="form-group col-lg-6 col-md-6 col-sm-8">
@@ -100,6 +98,9 @@ function UpdateProd() {
               class="form-control w-100"
               placeholder="Product name"
               ref={register}
+              defaultValue={
+                handler.singleProd ? handler.singleProd.model : null
+              }
             />
           </div>
           <div class="form-group col-lg-6 col-md-6 col-sm-8">
@@ -111,6 +112,9 @@ function UpdateProd() {
               class="form-control"
               placeholder="Price"
               ref={register}
+              defaultValue={
+                handler.singleProd ? handler.singleProd.price : null
+              }
             />
           </div>
           <div class="form-group col-lg-6 col-md-6 col-sm-8">
@@ -122,6 +126,7 @@ function UpdateProd() {
               class="form-control"
               placeholder="Quantity"
               ref={register}
+              defaultValue={handler.singleProd ? handler.singleProd.qty : null}
             />
           </div>
           <div class="form-group col-lg-6 col-md-6 col-sm-8">
@@ -130,6 +135,9 @@ function UpdateProd() {
               class="c-form-code form-control"
               id="c-form-camp-code"
               ref={register}
+              defaultValue={
+                handler.singleProd ? handler.singleProd.campaign : null
+              }
             >
               {handler.campaigns &&
                 handler.campaigns.map(camp => {
@@ -150,6 +158,7 @@ function UpdateProd() {
               class="form-control"
               placeholder="Product image"
               ref={register}
+              defaultValue={handler.singleProd ? handler.singleProd.img : null}
             />
           </div>
           <button
@@ -162,10 +171,11 @@ function UpdateProd() {
       ) : successMsg ? (
         <div
           id="success-message"
-          className="text-primary text-large p-3 mx-auto"
+          className="text-primary mh-25 text-large p-4 mx-auto"
         >
           <h6>SUCCESS!</h6>
-          <p>Redirecting to see product</p>
+          <p className="text-white">Redirecting...</p>
+          <div className="spinner-grow text-primary"></div>
         </div>
       ) : (
         <Navigate to={`/product/${handler.singleProd.id}`} />

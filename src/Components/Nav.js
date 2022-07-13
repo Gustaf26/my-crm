@@ -27,11 +27,10 @@ const Nav = () => {
         </Link>
         <div className="dropdown show">
           <a
-            className="nav-link rounded-pill dropdown-toggle"
+            className="nav-link text-white rounded-pill dropdown-toggle"
             data-toggle="dropdown"
             aria-haspopup="true"
             aria-expanded="false"
-            href="#"
             role="button"
             id="dropdownMenuLink"
           >
@@ -71,7 +70,11 @@ const Nav = () => {
           <i className="fa fa-plus mr-2"></i>
           <span>Create product</span>
         </a>
-        <Link to="/update" className="nav-link d-flex links rounded-pill">
+        <Link
+          onClick={() => handler.setSingleProd("")}
+          to="/update"
+          className="nav-link d-flex links rounded-pill"
+        >
           <i className="fa fa-pencil mr-2"></i>
           <span>Update product</span>
         </Link>
