@@ -57,7 +57,13 @@ function Product({ prod, campInfo }) {
               : null
           }
         >
-          <span className="rib">{campInfo}</span>
+          <div id="campaign-info-wrapper">
+            <span className="rib">
+              {campInfo}&nbsp;&nbsp;&nbsp;&nbsp;{campInfo}
+              &nbsp;&nbsp;&nbsp;&nbsp;
+              {window.innerWidth < 1000 ? `${campInfo}` : null}
+            </span>
+          </div>
           {singleProdShowing.id && (
             <div
               id="update-delete-prod-wrapper"
