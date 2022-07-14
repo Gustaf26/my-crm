@@ -11,10 +11,32 @@ function Product({ prod, campInfo }) {
   const singleProdShowing = useParams()
   const [navigateToUpdate, setNavigate] = useState(false)
   const [prodDiscount, setDiscount] = useState(0)
+  const [deletedProd, setDeleted] = useState(false)
+  const [goToProds, setGoToProds] = useState(false)
 
   const goToUpdate = () => {
     handler.setSingleProd(prod)
     setNavigate(true)
+  }
+
+  const deleteProd = () => {
+    let allProds = handler.products
+    allProds.map((cat, index) => {
+      let catName
+      let catProds
+      catName = Object.keys(cat).toString()
+      catProds = allProds[index][`${catName}`].filter(product => {
+        return Number(product.id) !== Number(prod.id)
+      })
+      allProds[index][`${catName}`] = catProds
+    })
+
+    setDeleted(true)
+
+    setTimeout(() => {
+      setGoToProds(true)
+      setId("")
+    }, 3000)
   }
 
   const getCampDiscount = () => {
@@ -44,7 +66,7 @@ function Product({ prod, campInfo }) {
           : "d-flex mySlides pt-5 mt-3"
       }
     >
-      {!prodId ? (
+      {!prodId && !deletedProd ? (
         <div
           className="bbb_deals"
           onClick={
@@ -74,7 +96,11 @@ function Product({ prod, campInfo }) {
                 className="icon mr-2"
                 onClick={goToUpdate}
               />
-              <FontAwesomeIcon icon={faTrash} className="icon ml-2" />
+              <FontAwesomeIcon
+                icon={faTrash}
+                className="icon ml-2"
+                onClick={deleteProd}
+              />
             </div>
           )}
           <div className="bbb_deals_item">
@@ -113,6 +139,17 @@ function Product({ prod, campInfo }) {
             </div>
           </div>
         </div>
+      ) : deletedProd && !goToProds ? (
+        <div
+          id="delete-success-message"
+          className="text-primary mh-25 text-large p-4 mx-auto"
+        >
+          <h6>SUCCESS!</h6>
+          <p className="text-white">Redirecting...</p>
+          <div className="spinner-grow text-primary"></div>
+        </div>
+      ) : goToProds ? (
+        <Navigate to="/products" />
       ) : (
         <Navigate to={`/product/${prodId}`} />
       )}

@@ -266,6 +266,20 @@ nav span {
   font-weight: bold;
 }
 
+#delete-success-message {
+  position: absolute;
+  top: 5%;
+  left: 21%;
+  width: 30vw;
+  text-align: center;
+  min-height: 20vh;
+  border-radius: 10px;
+  background-color: rgba(125, 90, 70, 0.5);
+  color: #256e9f !important;
+  animation: slide 2s forwards;
+  z-index: 1000;
+}
+
 #success-message h6 {
   font-weight: bold;
   font-size: x-large;
@@ -275,6 +289,11 @@ nav span {
   line-height: 2;
   font-weight: bold;
   font-size: large;
+}
+
+#delete-success-message h6 {
+  font-weight: bold;
+  font-size: x-large;
 }
 
 .section.active-sec {
