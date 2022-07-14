@@ -598,11 +598,11 @@ nav span {
   .active-slide span.rib {
     margin-left: -2.5rem !important;
     position: absolute !important;
-    top: 30% !important;
-    left: -10%;
+    top: 20% !important;
+    left: -5%;
     right: 40%;
     text-align: center;
-    max-width: 130%;
+    width: 150%;
     line-height: 1.25;
   }
   .single-prod-slide {
@@ -696,20 +696,32 @@ nav span {
   color: rgba(0, 0, 0, 0.5);
 }
 .bbb_deals_item_price {
+  position: absolute;
+  top: 11%;
+  right: 3%;
   margin-top: -5%;
-  font-size: medium !important;
+  padding-right: 0.5rem !important;
+  font-size: calc(10% * 10px) !important;
+  font-weight: bold;
   z-index: 1220;
+  color: rgb(131, 174, 229) !important;
+  backdrop-filter: blur(30px);
 }
 .bbb_deals_item_price_a {
   margin-top: -15%;
-  font-size: 14px;
-  font-weight: 400;
-  color: rgba(0, 0, 0, 0.6);
+  color: rgba(0, 0, 0);
   z-index: 1220;
 }
 .bbb_deals_item_price_a strike {
   color: red;
   z-index: 1220;
+  font-size: calc(10% * 1em) !important;
+  font-weight: bold;
+  padding-right: 0.5rem !important;
+  position: absolute;
+  backdrop-filter: blur(30px);
+  top: 3%;
+  right: 3%;
 }
 .bbb_deals_item_name {
   font-size: 1.05em;
