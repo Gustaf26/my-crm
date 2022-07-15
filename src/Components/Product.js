@@ -4,15 +4,17 @@ import { UserContext } from "../Hooks/userContext"
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
 import { faTrash, faSquarePen } from "@fortawesome/free-solid-svg-icons"
 
-function Product({ prod, campInfo }) {
+function Product() {
   const [activeSlide, setActive] = useState(false)
   const [prodId, setId] = useState("")
   const handler = useContext(UserContext)
-  const singleProdShowing = useParams()
+  const singleProdParam = useParams()
   const [navigateToUpdate, setNavigate] = useState(false)
   const [prodDiscount, setDiscount] = useState(0)
   const [deletedProd, setDeleted] = useState(false)
   const [goToProds, setGoToProds] = useState(false)
+  const [productShowing, setProdShowing] = useState("")
+  const [prodCampInfo, setProdCampInfo] = useState("")
 
   const goToUpdate = () => {
     handler.setSingleProd(prod)
@@ -59,7 +61,7 @@ function Product({ prod, campInfo }) {
   return (
     <div
       className={
-        Number(singleProdShowing.id) === prod.id
+        Number(singleProdParam.id) === prod.id
           ? "d-flex single-prod-slide pt-5 mt-3"
           : activeSlide
           ? "d-flex mySlides active-slide pt-5 mt-3"
@@ -70,7 +72,7 @@ function Product({ prod, campInfo }) {
         <div
           className="bbb_deals"
           onClick={
-            handler.singleProd.id !== prod.id || !singleProdShowing.id
+            handler.singleProd.id !== prod.id || !singleProdParam.id
               ? () => {
                   handler.setSingleProd(prod)
                   handler.setCampInfo(campInfo)
@@ -86,7 +88,7 @@ function Product({ prod, campInfo }) {
               {window.innerWidth < 1000 ? `${campInfo}` : null}
             </span>
           </div>
-          {singleProdShowing.id && (
+          {singleProdParam.id && (
             <div
               id="update-delete-prod-wrapper"
               className="w-100 d-flex justify-content-center"

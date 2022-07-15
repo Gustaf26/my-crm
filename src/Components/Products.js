@@ -71,8 +71,10 @@ function Products() {
                 if (camp.kod === prod.campaign) {
                   prodCampInfo = camp.info
                 }
+                handler.setSingleprod(prod)
+                handler.setCampInfo(prodCampInfo)
               })
-              return <Product campInfo={prodCampInfo} key={i} prod={prod} />
+              return <Product key={i} />
             }
           })}
         <button
