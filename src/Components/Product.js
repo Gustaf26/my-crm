@@ -4,7 +4,7 @@ import { UserContext } from "../Hooks/userContext"
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
 import { faTrash, faSquarePen } from "@fortawesome/free-solid-svg-icons"
 
-function Product() {
+function Product({ productShowing, prodCampInfo }) {
   const [activeSlide, setActive] = useState(false)
   const [prodId, setId] = useState("")
   const handler = useContext(UserContext)
@@ -13,11 +13,11 @@ function Product() {
   const [prodDiscount, setDiscount] = useState(0)
   const [deletedProd, setDeleted] = useState(false)
   const [goToProds, setGoToProds] = useState(false)
-  const [productShowing, setProdShowing] = useState("")
-  const [prodCampInfo, setProdCampInfo] = useState("")
+  const [prodFromParams, setParamProd] = useState("")
+  const [campFromProdParams, setParamCamp] = useState("")
 
   const goToUpdate = () => {
-    handler.setSingleProd(prod)
+    handler.setSingleProd(prodFromParams ? prodFromParams : productShowing)
     setNavigate(true)
   }
 
@@ -28,7 +28,7 @@ function Product() {
       let catProds
       catName = Object.keys(cat).toString()
       catProds = allProds[index][`${catName}`].filter(product => {
-        return Number(product.id) !== Number(prod.id)
+        return Number(product.id) !== Number(prodCampInfo.id)
       })
       allProds[index][`${catName}`] = catProds
     })
@@ -43,7 +43,7 @@ function Product() {
 
   const getCampDiscount = () => {
     handler.campaigns.map(campaign => {
-      if (campaign.info === campInfo) {
+      if (campaign.info === prodCampInfo) {
         setDiscount(Number(campaign.discount) / 100)
       }
     })
@@ -58,10 +58,30 @@ function Product() {
     }
   }, [])
 
+  useEffect(() => {
+    if (singleProdParam.id) {
+      handler.products.map((cat, index) => {
+        let catName
+        catName = Object.keys(cat).toString()
+        handler.products[index][`${catName}`].map(product => {
+          if (Number(product.id) === Number(singleProdParam.id)) {
+            setParamProd(product)
+          }
+        })
+      })
+
+      handler.campaigns.map(camp => {
+        if (camp.kod.toString() === prodFromParams.campaign) {
+          setParamCamp(camp.info)
+        }
+      })
+    }
+  }, [singleProdParam])
+
   return (
     <div
       className={
-        Number(singleProdParam.id) === prod.id
+        prodFromParams
           ? "d-flex single-prod-slide pt-5 mt-3"
           : activeSlide
           ? "d-flex mySlides active-slide pt-5 mt-3"
@@ -72,20 +92,24 @@ function Product() {
         <div
           className="bbb_deals"
           onClick={
-            handler.singleProd.id !== prod.id || !singleProdParam.id
+            handler.singleProd.id !== productShowing.id || !singleProdParam.id
               ? () => {
-                  handler.setSingleProd(prod)
-                  handler.setCampInfo(campInfo)
-                  setId(prod.id)
+                  handler.setSingleProd(productShowing)
+                  handler.setCampInfo(prodCampInfo)
+                  setId(productShowing.id)
                 }
               : null
           }
         >
           <div id="campaign-info-wrapper">
             <span className="rib">
-              {campInfo}&nbsp;&nbsp;&nbsp;&nbsp;{campInfo}
+              {campFromProdParams ? campFromProdParams : prodCampInfo}
               &nbsp;&nbsp;&nbsp;&nbsp;
-              {window.innerWidth < 1000 ? `${campInfo}` : null}
+              {campFromProdParams ? campFromProdParams : prodCampInfo}
+              &nbsp;&nbsp;&nbsp;&nbsp;
+              {window.innerWidth < 1000
+                ? `${campFromProdParams ? campFromProdParams : prodCampInfo}`
+                : null}
             </span>
           </div>
           {singleProdParam.id && (
@@ -105,41 +129,58 @@ function Product() {
               />
             </div>
           )}
-          <div className="bbb_deals_item">
-            <div className="bbb_deals_image">
-              <img src={prod.img} alt="product" />
-            </div>
-            <div className="bbb_deals_content">
-              <div className="bbb_deals_info_line d-flex flex-row justify-content-start">
-                <div className="bbb_deals_item_price_a ml-auto">
-                  <strike>{prod.price}</strike>
-                </div>
+          {(productShowing || prodFromParams) && (
+            <div className="bbb_deals_item">
+              <div className="bbb_deals_image">
+                <img
+                  src={productShowing ? productShowing.img : prodFromParams.img}
+                  alt="product"
+                />
               </div>
-              <div className="bbb_deals_info_line d-flex flex-row justify-content-start">
-                <div className="bbb_deals_item_price ml-auto">
-                  {prod.price - prod.price * prodDiscount}
+              <div className="bbb_deals_content">
+                <div className="bbb_deals_info_line d-flex flex-row justify-content-start">
+                  <div className="bbb_deals_item_price_a ml-auto">
+                    <strike>
+                      {productShowing
+                        ? productShowing.price
+                        : prodFromParams.price}
+                    </strike>
+                  </div>
                 </div>
-              </div>
-              <div className="end-of-card">
-                <div className="bbb_deals_item_name w-100 pt-2">
-                  {prod.model.charAt(0).toUpperCase() + prod.model.slice(1)}
+                <div className="bbb_deals_info_line d-flex flex-row justify-content-start">
+                  <div className="bbb_deals_item_price ml-auto">
+                    {productShowing
+                      ? productShowing.price -
+                        productShowing.price * prodDiscount
+                      : prodFromParams.price -
+                        prodFromParams.price * prodDiscount}
+                  </div>
                 </div>
-                <div className="available">
-                  <div className="available_line d-flex flex-column align-items-center justify-content-center">
-                    <div>Rating</div>
-                    <div className="sold_stars d-flex py-2 mx-auto">
-                      <i className="fa fa-star mx-2"></i>
-                      <i className="fa fa-star mx-2"></i>
-                      <i className="fa fa-star mx-2"></i>
+                <div className="end-of-card">
+                  <div className="bbb_deals_item_name w-100 pt-2">
+                    {productShowing
+                      ? productShowing.model.charAt(0).toUpperCase() +
+                        productShowing.model.slice(1)
+                      : prodFromParams.model.charAt(0).toUpperCase() +
+                        prodFromParams.model.slice(1)}
+                  </div>
+                  <div className="available">
+                    <div className="available_line d-flex flex-column align-items-center justify-content-center">
+                      <div>Rating</div>
+                      <div className="sold_stars d-flex py-2 mx-auto">
+                        <i className="fa fa-star mx-2"></i>
+                        <i className="fa fa-star mx-2"></i>
+                        <i className="fa fa-star mx-2"></i>
+                      </div>
+                    </div>
+                    <div>
+                      <span style={{ width: "17%" }}></span>
                     </div>
                   </div>
-                  <div>
-                    <span style={{ width: "17%" }}></span>
-                  </div>
                 </div>
               </div>
             </div>
-          </div>
+          )}
         </div>
       ) : deletedProd && !goToProds ? (
         <div

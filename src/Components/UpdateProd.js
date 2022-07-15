@@ -57,7 +57,7 @@ function UpdateProd() {
     setTimeout(() => {
       setprodUpdated(true)
       setMsg(false)
-    }, 5000)
+    }, 3000)
   }
 
   useEffect(() => {
