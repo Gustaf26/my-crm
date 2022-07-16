@@ -59,6 +59,8 @@ function Product({ productShowing, prodCampInfo }) {
   }, [])
 
   useEffect(() => {
+    // Populate the cards with right prod if navigating back
+    // to product with id as a param
     if (singleProdParam.id) {
       handler.products.map((cat, index) => {
         let catName
@@ -94,9 +96,13 @@ function Product({ productShowing, prodCampInfo }) {
           onClick={
             handler.singleProd.id !== productShowing.id || !singleProdParam.id
               ? () => {
-                  handler.setSingleProd(productShowing)
-                  handler.setCampInfo(prodCampInfo)
-                  setId(productShowing.id)
+                  handler.setSingleProd(
+                    prodFromParams ? prodFromParams : productShowing
+                  )
+                  handler.setCampInfo(
+                    campFromProdParams ? campFromProdParams : prodCampInfo
+                  )
+                  setId(prodFromParams ? prodFromParams.id : productShowing.id)
                 }
               : null
           }
