@@ -45,6 +45,8 @@ function Product({ productShowing, prodCampInfo }) {
     handler.campaigns.map(campaign => {
       if (campaign.info === prodCampInfo) {
         setDiscount(Number(campaign.discount) / 100)
+      } else if (campaign.info === handler.campInfo) {
+        setDiscount(Number(campaign.discount) / 100)
       }
     })
   }
@@ -75,10 +77,11 @@ function Product({ productShowing, prodCampInfo }) {
       handler.campaigns.map(camp => {
         if (camp.kod.toString() === prodFromParams.campaign) {
           setParamCamp(camp.info)
+          alert("hello")
         }
       })
     }
-  }, [singleProdParam])
+  }, [])
 
   return (
     <div
@@ -107,17 +110,19 @@ function Product({ productShowing, prodCampInfo }) {
               : null
           }
         >
-          <div id="campaign-info-wrapper">
-            <span className="rib">
-              {campFromProdParams ? campFromProdParams : prodCampInfo}
-              &nbsp;&nbsp;&nbsp;&nbsp;
-              {campFromProdParams ? campFromProdParams : prodCampInfo}
-              &nbsp;&nbsp;&nbsp;&nbsp;
-              {window.innerWidth < 1000
-                ? `${campFromProdParams ? campFromProdParams : prodCampInfo}`
-                : null}
-            </span>
-          </div>
+          {(prodCampInfo || handler.campInfo) && (
+            <div id="campaign-info-wrapper">
+              <span className="rib">
+                {prodCampInfo ? prodCampInfo : handler.campInfo}
+                &nbsp;&nbsp;&nbsp;&nbsp;
+                {prodCampInfo ? prodCampInfo : handler.campInfo}
+                &nbsp;&nbsp;&nbsp;&nbsp;
+                {window.innerWidth < 1000
+                  ? `${prodCampInfo ? prodCampInfo : handler.campInfo}`
+                  : null}
+              </span>
+            </div>
+          )}
           {singleProdParam.id && (
             <div
               id="update-delete-prod-wrapper"
