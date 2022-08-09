@@ -94,7 +94,9 @@ function App() {
               path={"/product/:id"}
               element={
                 loggedIn ? (
-                  <Product productShowing={""} prodCampInfo={""} />
+                  <div id="single-product-container">
+                    <Product productShowing={""} prodCampInfo={""} />
+                  </div>
                 ) : (
                   <Navigate to="/login" />
                 )

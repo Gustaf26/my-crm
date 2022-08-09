@@ -472,6 +472,18 @@ nav span {
   cursor: pointer;
 }
 
+#single-product-container {
+  position: absolute;
+  margin: 1rem 1rem;
+  left: 25vw;
+  width: 71%;
+  height: 95vh;
+  backdrop-filter: blur(5px);
+  display: flex;
+  justify-content: center !important;
+  align-items: center;
+}
+
 #update-delete-prod-wrapper {
   position: absolute;
   align-items: start;
@@ -549,7 +561,6 @@ nav span {
     height: 65%;
   }
   .single-prod-slide {
-    left: 47%;
     height: 65%;
     width: 33vw !important;
   }
@@ -598,7 +609,6 @@ nav span {
   }
 
   .single-prod-slide {
-    left: 37%;
     height: 65%;
     min-width: 45vw;
     max-width: 50vw;
@@ -650,7 +660,6 @@ nav span {
     line-height: 1.25;
   } */
   .single-prod-slide {
-    left: 37%;
     height: 65%;
     width: 50vw;
   }
