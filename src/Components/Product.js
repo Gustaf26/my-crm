@@ -58,6 +58,7 @@ function Product({ productShowing, prodCampInfo }) {
 
     return () => {
       setActive(false)
+      handler.setSingleProd("")
     }
   }, [])
 
@@ -98,7 +99,7 @@ function Product({ productShowing, prodCampInfo }) {
         <div
           className="bbb_deals"
           onClick={
-            handler.singleProd.id !== productShowing.id || !singleProdParam.id
+            handler.singleProd.id !== productShowing.id && !singleProdParam.id
               ? () => {
                   handler.setSingleProd(
                     prodFromParams ? prodFromParams : productShowing
