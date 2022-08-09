@@ -28,9 +28,10 @@ function Product({ productShowing, prodCampInfo }) {
       let catProds
       catName = Object.keys(cat).toString()
       catProds = allProds[index][`${catName}`].filter(product => {
-        return Number(product.id) !== Number(prodCampInfo.id)
+        return Number(product.id) !== Number(singleProdParam.id)
       })
       allProds[index][`${catName}`] = catProds
+      handler.updateProducts(allProds)
     })
 
     setDeleted(true)
